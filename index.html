@@ -5,6 +5,11 @@
   <meta name="description" content="Product Manager &amp; Software Engineer in Beirut.">
   <link rel="icon" href="favicon.ico">
   <style>
+    /* Fallback: hide mobile nav toggle on large screens and show on small screens
+       This protects behavior if external stylesheet fails to load on deployment */
+    .nav-toggle{display:none}
+    @media(max-width:900px){.nav-toggle{display:inline-flex}}
+
     :root { --bg:#0b0d12; --surface:#12151c; --text:#e7e9ee; --muted:#98a2b3; --brand:#5b8cff; --brand2:#7b5bff; --border:#1f2430; --radius:14px; --accent:#62ffa8; --toggleBg:#1a1f2b; --toggleFg:#e7e9ee; }
     html[data-theme="light"]{ --bg:#f7f8fb; --surface:#ffffff; --text:#0c111d; --muted:#4b5565; --border:#e5e7eb; --brand:#2d6dfd; --brand2:#8852ff; --accent:#0fb66d; --toggleBg:#eef2ff; --toggleFg:#0c111d; }
     *{box-sizing:border-box}
@@ -101,7 +106,7 @@
           <span class="icon" aria-hidden="true">🌙</span>
           <span class="label">Dark</span>
         </button>
-        <a href="assets\CV.pdf" class="btn primary" aria-label="Download CV">Download CV</a>
+        <a href="assets/CV.pdf" class="btn primary" aria-label="Download CV">Download CV</a>
       </div>
     </div>
   </header>
@@ -117,7 +122,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="assets\images\profile_pic.jpg" alt="Alaa Serhal portfolio visual">
+        <img src="assets/images/profile_pic.jpg" alt="Alaa Serhal portfolio visual">
       </div>
     </section>
 
@@ -269,8 +274,8 @@
       <h2 id="projects-title">Featured Projects</h2>
       <div class="grid cols-3">
         <article class="card project" aria-labelledby="p1-title">
-          <a href="https://lauedu74602-my.sharepoint.com/personal/alaa_serhal_lau_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Falaa%5Fserhal%5Flau%5Fedu%2FDocuments%2FFYP%5FDemo%2FFYP%5FDemo%2Emp4&amp;ga=1" aria-label="Watch SOS Demo">
-            <img src="assets\images\projects\project-featured.png" alt="SOS demo screenshot">
+            <a href="https://lauedu74602-my.sharepoint.com/personal/alaa_serhal_lau_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Falaa%5Fserhal%5Flau%5Fedu%2FDocuments%2FFYP%5FDemo%2FFYP%5FDemo%2Emp4&amp;ga=1" aria-label="Watch SOS Demo">
+            <img src="assets/images/projects/project-featured.png" alt="SOS demo screenshot">
           </a>
           <div class="content">
             <h3 id="p1-title"><a href="https://lauedu74602-my.sharepoint.com/personal/alaa_serhal_lau_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Falaa%5Fserhal%5Flau%5Fedu%2FDocuments%2FFYP%5FDemo%2FFYP%5FDemo%2Emp4&amp;ga=1">SOS — Smart Obviation System</a></h3>
@@ -279,7 +284,7 @@
         </article>
         <article class="card project" aria-labelledby="p2-title">
           <a href="https://play.google.com/store/apps/details?id=com.safegoapp&amp;hl=en&amp;gl=US&amp;pli=1" aria-label="Open SafeGo on Play Store">
-            <img src="assets\images\projects\project-4.png" alt="SafeGo app screenshot">
+            <img src="assets/images/projects/project-4.png" alt="SafeGo app screenshot">
           </a>
           <div class="content">
             <h3 id="p2-title"><a href="https://play.google.com/store/apps/details?id=com.safegoapp&amp;hl=en&amp;gl=US&amp;pli=1">SafeGo — Congestion Management</a></h3>
@@ -288,7 +293,7 @@
         </article>
         <article class="card project" aria-labelledby="p3-title">
           <a href="https://github.com/AlaaSerhal/Covid19TraceApp" aria-label="Open Covid-19 Trace on GitHub">
-            <img src="assets\images\projects\project-3.png" alt="COVID-19 Trace prototype">
+            <img src="assets/images/projects/project-3.png" alt="COVID-19 Trace prototype">
           </a>
           <div class="content">
             <h3 id="p3-title"><a href="https://github.com/AlaaSerhal/Covid19TraceApp">COVID‑19 Trace</a></h3>
