@@ -2,8 +2,7 @@
     <title> Eng. Alaa Serhal</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Alaa Serhal — Portfolio</title>
-  <meta name="description" content="Product Manager &amp; Software Engineer in Beirut. Dark-default theme with centered nav, brand left, actions right, and grouped skills.">
+  <meta name="description" content="Product Manager &amp; Software Engineer in Beirut.">
   <link rel="icon" href="favicon.ico">
   <style>
     :root { --bg:#0b0d12; --surface:#12151c; --text:#e7e9ee; --muted:#98a2b3; --brand:#5b8cff; --brand2:#7b5bff; --border:#1f2430; --radius:14px; --accent:#62ffa8; --toggleBg:#1a1f2b; --toggleFg:#e7e9ee; }
@@ -79,14 +78,15 @@
   </style>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
   <header>
     <div class="container nav">
       <div class="brand">
         <span class="dot" aria-hidden="true"></span>
-        <div class="brandname">Alaa Serhal</div>
+        <a href="#top" class="brandname">Alaa Serhal</a>
       </div>
-      <nav class="links" aria-label="Primary">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
+      <nav id="navLinks" class="links" aria-label="Primary" aria-hidden="false">
         <a href="#summary" class="btn">Summary</a>
         <a href="#projects" class="btn">Projects</a>
         <a href="#experience" class="btn">Experience</a>
@@ -331,6 +331,27 @@
         localStorage.setItem('theme', next);
         apply(next);
       });
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+      function closeNav(){
+        document.body.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded','false');
+        navLinks.setAttribute('aria-hidden','true');
+      }
+      function openNav(){
+        document.body.classList.add('nav-open');
+        navToggle.setAttribute('aria-expanded','true');
+        navLinks.setAttribute('aria-hidden','false');
+      }
+      navToggle && navToggle.addEventListener('click', function(){
+        if(document.body.classList.contains('nav-open')) closeNav(); else openNav();
+      });
+      // Close when a nav link is clicked (mobile)
+      navLinks && Array.from(navLinks.querySelectorAll('a')).forEach(a=>a.addEventListener('click', ()=> closeNav()));
+      // Close on Escape
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
     })();
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

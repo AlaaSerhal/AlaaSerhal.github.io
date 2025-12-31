@@ -82,6 +82,9 @@ section#experience li > i, #experience li > i, .experience li > i { color: var(-
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+/* Hide mobile nav toggle on large screens; shown only via media query */
+.nav-toggle { display: none; }
+
 /* ================================
    MOBILE REFINEMENT
    ================================ */
@@ -104,4 +107,51 @@ section#experience li > i, #experience li > i, .experience li > i { color: var(-
   .hero-image img {
     max-width: 180px;
   }
+}
+
+/* Navigation responsiveness */
+@media (max-width: 900px) {
+  .container.nav { padding-inline: 6px; }
+  /* Use a simple flex header on small screens so we can order items precisely */
+  .nav { display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
+  .brand { transform: none; display:flex; align-items:center; gap:.6rem; order:1; }
+  .links { justify-self: end; display: flex; gap: .5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: .25rem; }
+  .links::-webkit-scrollbar { display: none; }
+  .links .btn { padding: .4rem .6rem; font-size: .92rem; white-space: nowrap; }
+  .right-rail { gap: .4rem; transform: none; justify-self: end; }
+  .container.nav { position: relative; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border); background: var(--toggleBg); color: var(--toggleFg); padding: .4rem .6rem; border-radius: 10px; font-size: 1.05rem; cursor: pointer; order:0; }
+  /* Collapse links into an accessible dropdown panel */
+  /* Anchor the dropdown beneath the left toggle and keep a constrained width */
+  .links { position: absolute; left: 8px; right: auto; top: calc(100% + 6px); width: min(92vw, 320px); background: var(--surface); margin: 0; padding: .6rem; display: flex; flex-direction: column; gap: .45rem; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.18); max-height: 0; overflow: hidden; transition: max-height .28s ease, opacity .18s ease, transform .18s ease; opacity: 0; pointer-events: none; z-index: 60; }
+  .links .btn { width: 100%; text-align: left; }
+  body.nav-open .links { max-height: 600px; opacity: 1; pointer-events: auto; }
+  body.nav-open { overflow: hidden; }
+  .right-rail { order:2; display:flex; align-items:center; gap:.5rem; }
+}
+
+@media (max-width: 600px) {
+  .project img { height: 140px; object-fit: cover; }
+  .card.pad { padding: 1rem; }
+  .hero-image::before { width: 200px; height: 200px; }
+  .hero-image img { max-width: 140px; }
+  .btn { padding: .35rem .5rem; font-size: .9rem; border-radius: 8px; }
+  .brandname { font-size: .95rem; }
+  .container { width: 94vw; }
+  .cta { flex-direction: column; gap: .5rem; align-items: center; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.15rem; }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  .links { gap: .4rem; }
+  .links .btn { padding: .3rem .5rem; font-size: .88rem; }
+  .hero { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .grid.cols-2, .grid.cols-3 { gap: .6rem; }
+}
+
+/* Ensure two-column grids (like Experience) stack on narrow phones */
+@media (max-width: 768px) {
+  .grid.cols-2 { grid-template-columns: 1fr !important; }
 }
